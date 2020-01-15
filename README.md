@@ -1,6 +1,6 @@
 # vue-component
 ## 说明
-自己用的vue-component
+自己用的vue-component-mob
 
 1.tabbar
 ## Project setup
