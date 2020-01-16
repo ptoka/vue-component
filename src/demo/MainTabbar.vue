@@ -1,32 +1,13 @@
 <template>
   <div>
     <tabbar>
-      <tabbar-item link="/index">
-        <template #icon><img src="~assets/img/tabbar/home.svg"></template>
-        <template #icon-active><img src="~assets/img/tabbar/home_active.svg"></template>
+      <tabbar-item v-for="item in tabItem"
+                   :link="item.link"
+                   :key="item.link">
+        <template #icon><img :src="item.icon"></template>
+        <template #icon-active><img :src="item.iconActive"></template>
         <template #label>
-          主页
-        </template>
-      </tabbar-item>
-      <tabbar-item link="/category">
-        <template #icon><img src="~assets/img/tabbar/category.svg"></template>
-        <template #icon-active><img src="~assets/img/tabbar/category_active.svg"></template>
-        <template #label>
-          分类
-        </template>
-      </tabbar-item>
-      <tabbar-item link="/cart">
-        <template #icon><img src="~assets/img/tabbar/shopcart.svg"></template>
-        <template #icon-active><img src="~assets/img/tabbar/shopcart_active.svg"></template>
-        <template #label>
-          购物车
-        </template>
-      </tabbar-item>
-      <tabbar-item link="/profile">
-        <template #icon><img src="~assets/img/tabbar/profile.svg"></template>
-        <template #icon-active><img src="~assets/img/tabbar/profile_active.svg"></template>
-        <template #label>
-          我的
+          {{item.label}}
         </template>
       </tabbar-item>
     </tabbar>
@@ -41,6 +22,16 @@
     components: {
       Tabbar,
       TabbarItem
+    },
+    data () {
+      return {
+        tabItem: [
+          { link: '/index', icon: require('assets/img/tabbar/home.svg'), iconActive: require('assets/img/tabbar/home_active.svg'), label: '主页' },
+          { link: '/category', icon: require('assets/img/tabbar/category.svg'), iconActive: require('assets/img/tabbar/category_active.svg'), label: '分类' },
+          { link: '/cart', icon: require('assets/img/tabbar/shopcart.svg'), iconActive: require('assets/img/tabbar/shopcart_active.svg'), label: '购物车' },
+          { link: '/profile', icon: require('assets/img/tabbar/profile.svg'), iconActive: require('assets/img/tabbar/profile_active.svg'), label: '我的' },
+        ]
+      }
     }
   }
 </script>

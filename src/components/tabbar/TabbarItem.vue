@@ -7,7 +7,7 @@
     <div v-show='isActive'>
       <slot name="icon-active"></slot>
     </div>
-    <p>
+    <p :class="hasActive">
       <slot name="label">首页</slot>
     </p>
   </div>
@@ -35,6 +35,13 @@
         return this.$route.path.indexOf(this.link) !== -1;
         console.log(this.link)
       },
+      hasActive () {
+        if (this.$route.path.indexOf(this.link) !== -1) {
+          return 'hasActive'
+        } else {
+          return ' '
+        }
+      }
     }
   }
 </script>
@@ -53,5 +60,8 @@
     height: 24px;
     width: 24px;
     vertical-align: middle;
+  }
+  .hasActive {
+    color: #ff5777;
   }
 </style>
